@@ -1,0 +1,36 @@
+.server-status {
+  align-items: center;
+  color: #6b7280;
+  display: inline-flex;
+  font-size: 0.95rem;
+  font-weight: 500;
+  gap: 0.5rem;
+  min-height: 2rem;
+}
+
+.status-dot {
+  background: #9ca3af;
+  border-radius: 999px;
+  box-shadow: 0 0 0 3px #e5e7eb;
+  display: inline-block;
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+.server-status--online {
+  color: #15803d;
+}
+
+.server-status--online .status-dot {
+  background: #22c55e;
+  box-shadow: 0 0 0 3px #bbf7d0;
+}
+
+.server-status--offline {
+  color: #b91c1c;
+}
+
+.server-status--offline .status-dot {
+  background: #ef4444;
+  box-shadow: 0 0 0 3px #fecaca;
+}

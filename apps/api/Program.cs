@@ -3,6 +3,16 @@ using Cdb.Api.Features.Health;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("DevCorsPolicy", policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+    });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddProblemDetails();
 builder.Services.AddSwaggerGen();
@@ -22,6 +32,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseCors("DevCorsPolicy");
 app.MapHealthEndpoints();
 app.MapCdbEndpoints();
 

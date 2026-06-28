@@ -1,0 +1,27 @@
+<main class="page-shell">
+  <section class="calculator-panel" aria-labelledby="page-title">
+    <h1 id="page-title">Calculadora de rendimento CDB</h1>
+
+    <app-cdb-calculator-form
+      [isLoading]="isCalculating()"
+      (calculate)="calculate($event)"
+      (formChanged)="clearResult()"
+    />
+
+    @if (errorMessage()) {
+      <p class="error-message" role="alert">{{ errorMessage() }}</p>
+    }
+
+    @if (calculationResult() && submittedRequest()) {
+      <app-cdb-result [request]="submittedRequest()!" [result]="calculationResult()!" />
+    }
+  </section>
+
+  <footer class="page-footer">
+    <app-server-status [status]="serverStatus()" />
+    <div class="footer-info" aria-label="Informacoes do rodape">
+      <span>Calculadora CDB</span>
+      <span>Resultados fornecidos pela API local</span>
+    </div>
+  </footer>
+</main>

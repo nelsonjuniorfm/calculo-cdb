@@ -1,0 +1,4 @@
+<div class="server-status" [class.server-status--online]="status() === 'online'" [class.server-status--offline]="status() === 'offline'">
+  <span class="status-dot" aria-hidden="true"></span>
+  <span>{{ label }}</span>
+</div>

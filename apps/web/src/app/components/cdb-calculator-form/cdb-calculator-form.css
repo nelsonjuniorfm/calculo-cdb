@@ -1,0 +1,36 @@
+.calculator-form {
+  display: grid;
+  gap: 1rem;
+  margin-inline: auto;
+  max-width: 36rem;
+  width: 100%;
+}
+
+.field-row {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) minmax(10rem, 0.45fr);
+}
+
+.calculate-button {
+  border-radius: 8px;
+  min-height: 3rem;
+  width: 100%;
+}
+
+.calculate-button mat-spinner {
+  margin-right: 0.5rem;
+}
+
+.button-symbol {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}

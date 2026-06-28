@@ -1,0 +1,19 @@
+<mat-card appearance="outlined" class="result-card">
+  <mat-card-content>
+    <p class="summary">
+      Aplicando {{ request().initialAmount | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR' }}
+      por {{ request().months }} meses
+    </p>
+
+    <dl class="result-list">
+      <div>
+        <dt>Resultado bruto</dt>
+        <dd>{{ result().grossAmount | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR' }}</dd>
+      </div>
+      <div>
+        <dt>Resultado liquido</dt>
+        <dd>{{ result().netAmount | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR' }}</dd>
+      </div>
+    </dl>
+  </mat-card-content>
+</mat-card>
