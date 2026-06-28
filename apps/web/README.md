@@ -1,59 +1,76 @@
-# Web
+# Frontend Web - Calculadora CDB
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.17.
+Aplicacao Angular para calcular o rendimento bruto e liquido de um investimento CDB. A interface segue o wireframe do projeto, valida os dados de entrada e consome a API local para obter os resultados.
 
-## Development server
+## Requisitos
 
-To start a local development server, run:
+- Node.js compativel com Angular 21.
+- npm.
+- API do projeto rodando em `http://localhost:5080`.
 
-```bash
-ng serve
+## Configuracao da API
+
+O host da API esta centralizado em:
+
+```ts
+src/environments/environment.ts
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Valor esperado para desenvolvimento local:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```ts
+apiBaseUrl: 'http://localhost:5080'
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+O projeto nao usa `.env`, pois Angular usa arquivos `environment.ts` como padrao de configuracao por ambiente.
+
+## Como Rodar
+
+Instale as dependencias:
 
 ```bash
-ng generate --help
+npm install
 ```
 
-## Building
-
-To build the project run:
+Suba a API em outro terminal:
 
 ```bash
-ng build
+dotnet run --project ../api/Cdb.Api.csproj
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Inicie o frontend:
 
 ```bash
-ng test
+npm run start
 ```
 
-## Running end-to-end tests
+Acesse:
 
-For end-to-end (e2e) testing, run:
+```text
+http://localhost:4200
+```
+
+## Funcionalidades
+
+- Consulta `GET /health` ao abrir a tela para indicar se o servidor esta ativo.
+- Envia `POST /api/cdb/calculate` para calcular o rendimento.
+- Valida valor monetario positivo.
+- Valida prazo em meses maior que `1`.
+- Exibe resultado bruto e resultado liquido.
+- Exibe mensagens de erro quando a API retorna validacao ou esta indisponivel.
+
+## Testes e Build
+
+Rodar testes:
 
 ```bash
-ng e2e
+npm test -- --watch=false
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Gerar build:
 
-## Additional Resources
+```bash
+npm run build
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Nao ha script de lint configurado atualmente.
