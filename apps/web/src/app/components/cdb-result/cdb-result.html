@@ -1,9 +1,21 @@
 <mat-card appearance="outlined" class="result-card">
   <mat-card-content>
-    <p class="summary">
-      Aplicando {{ request().initialAmount | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR' }}
-      por {{ request().months }} meses
-    </p>
+    <div class="summary-row">
+      <p class="summary">
+        Aplicando {{ request().initialAmount | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR' }}
+        por {{ request().months }} meses
+      </p>
+
+      <button
+        type="button"
+        class="info-button"
+        aria-label="Como calculamos seu rendimento?"
+        [matTooltip]="roundingTooltip"
+        matTooltipPosition="above"
+      >
+        i
+      </button>
+    </div>
 
     <dl class="result-list">
       <div>
