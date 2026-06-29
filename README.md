@@ -1,35 +1,35 @@
 # Calculadora CDB
 
-Aplicacao full stack para calcular o rendimento bruto e liquido de um investimento CDB. O projeto possui uma API .NET 10 e um frontend Angular que consome essa API.
+Aplicação full stack para calcular o rendimento bruto e líquido de um investimento CDB. O projeto possui uma API .NET 10 e um frontend Angular que consome essa API.
 
 ## Estrutura
 
 - `apps/api/` — API em .NET 10 com ASP.NET Core Minimal API.
-- `apps/api.Tests/` — testes automatizados da API e das regras de calculo.
+- `apps/api.Tests/` — testes automatizados da API e das regras de cálculo.
 - `apps/web/` — frontend em Angular 21 com Angular Material.
 
 ## Requisitos
 
 - .NET 10 SDK.
-- Node.js compativel com Angular 21.
+- Node.js compatível com Angular 21.
 - npm.
 
 ## Como Executar
 
-Instale as dependencias do frontend:
+Instale as dependências do frontend:
 
 ```bash
 cd apps/web
 npm install
 ```
 
-Em um terminal, suba a API a partir da raiz do repositorio:
+Em um terminal, suba a API a partir da raiz do repositório:
 
 ```bash
 dotnet run --project apps/api/Cdb.Api.csproj
 ```
 
-A API deve ficar disponivel em:
+A API deve ficar disponível em:
 
 ```text
 http://localhost:5080
@@ -42,30 +42,30 @@ cd apps/web
 npm run start
 ```
 
-Acesse a aplicacao em:
+Acesse a aplicação em:
 
 ```text
 http://localhost:4200
 ```
 
-## Uso da Aplicacao
+## Uso da Aplicação
 
 1. Abra o frontend no navegador.
-2. Confira o indicador de servidor ativo no rodape da tela.
-3. Informe um valor monetario positivo.
+2. Confira o indicador de servidor ativo no rodapé da tela.
+3. Informe um valor monetário positivo.
 4. Informe um prazo em meses maior que `1`.
 5. Clique em “Calcular”.
-6. Veja o resultado bruto e o resultado liquido retornados pela API.
+6. Veja o resultado bruto e o resultado líquido retornados pela API.
 
 ## API
 
-Endpoint de saude usado pelo frontend:
+Endpoint de saúde usado pelo frontend:
 
 ```http
 GET http://localhost:5080/health
 ```
 
-Endpoint de calculo:
+Endpoint de cálculo:
 
 ```http
 POST http://localhost:5080/api/cdb/calculate
@@ -112,8 +112,7 @@ npm test -- --watch=false
 npm run build
 ```
 
-## Observacoes
+## Observações
 
 - O frontend usa `apps/web/src/environments/environment.ts` para configurar a URL da API.
-- Nao e necessario criar `.env`; o repositorio proibe criar ou alterar arquivos `.env` e `.env.*`.
-- O frontend esta em Angular 21 porque o ambiente local usado na implementacao tinha Node.js `v24.13.0`, e Angular 22 exige Node.js `v24.15.0` ou superior.
+- O frontend está em Angular 21 porque o ambiente local usado na implementacao tinha Node.js `v24.13.0`, e Angular 22 exige Node.js `v24.15.0` ou superior.
